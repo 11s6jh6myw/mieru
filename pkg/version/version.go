@@ -19,6 +19,9 @@ const (
 	// PreRelease is the pre-release version string.
 	// Leave empty for stable releases.
 	PreRelease = ""
+
+	// ForkOwner identifies the maintainer of this personal fork.
+	ForkOwner = "personal-fork"
 )
 
 // AppVersion is the full semantic version string of the application.
