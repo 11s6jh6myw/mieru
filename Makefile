@@ -44,8 +44,15 @@ build-client:
 	$(GOBUILD) $(LD_FLAGS) -o $(OUT_DIR)/$(CLIENT_BINARY) ./cmd/mieru/...
 
 ## test: run all unit tests
+# Note: removed -race flag here because it significantly slows down my dev loop;
+# run `make test-race` for the full race-detector pass before pushing.
 test:
 	@echo "Running tests..."
+	$(GOTEST) -v -count=1 ./...
+
+## test-race: run all unit tests with the race detector enabled
+test-race:
+	@echo "Running tests with race detector..."
 	$(GOTEST) -v -race -count=1 ./...
 
 ## vet: run go vet on all packages
