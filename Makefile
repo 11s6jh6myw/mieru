@@ -46,9 +46,10 @@ build-client:
 ## test: run all unit tests
 # Note: removed -race flag here because it significantly slows down my dev loop;
 # run `make test-race` for the full race-detector pass before pushing.
+# Using -timeout 120s instead of the default 10m to catch hung tests faster.
 test:
 	@echo "Running tests..."
-	$(GOTEST) -v -count=1 ./...
+	$(GOTEST) -v -count=1 -timeout 120s ./...
 
 ## test-race: run all unit tests with the race detector enabled
 test-race:
