@@ -52,12 +52,14 @@ func GetBuildInfo() BuildInfo {
 }
 
 // String returns a human-readable representation of the build info.
+// Example output: "mieru version 3.9.0 (Go go1.22.0, linux/amd64) [fork: personal-fork]"
 func (b BuildInfo) String() string {
 	return fmt.Sprintf(
-		"mieru version %s (Go %s, %s/%s)",
+		"mieru version %s (Go %s, %s/%s) [fork: %s]",
 		b.Version,
 		b.GoVersion,
 		b.OS,
 		b.Arch,
+		ForkOwner,
 	)
 }
